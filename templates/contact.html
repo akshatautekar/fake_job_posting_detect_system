@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-    9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+      <!--Font Awesome-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100&display=swap" rel="stylesheet">
+      
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
+      <!--External css-->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contact.css') }}">
+
+      
+    <title>Fake Job Detection</title>
+  </head>
+
+  <body>
+       
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  
+            <a class="navbar-brand" href="/">Fake Job Detection</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-target="#navbarResponsive" 
+                    aria-controls="navbarResponsive" aria-expanded="flase" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/news_page">NEWS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact_page">CONTACT</a></li>
+                </ul>
+        </div>
+    </nav>
+
+
+
+
+<section>
+    <div class="container">
+      <form action="https://formspree.io/f/mqknqnbv" method="post">
+        <h2>HAVE SOME QUESTIONS?</h2>
+        <div class="form-group">
+          <label for="firstName"> First Name</label>
+          <input type="text" id="firstName" name="firstName">
+        </div>
+  
+        <div class="form-group">
+          <label for="latsName">Last Name</label>
+          <input type="text" id="lastName" name="lastName">
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+  
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" cols="20" rows="3"></textarea>
+        </div>
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div id="status"></div>
+  </section>
+<!--Footer-->
+    <footer class="py-5 bg-dark">
+        
+            <p class="text-center text-white">© Thane,Mumbai - All rights reserved</p>
+            <div class="credits text-center text-white">
+              Designed by <a href="#.">Anushka , Priya , Akshata</a>
+       
+        <p class="text-center text-white"><a href="anushkadhonde@gmail.com">fakejobdetection@gmail.com</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+  
+
+    
+
+  
+   			

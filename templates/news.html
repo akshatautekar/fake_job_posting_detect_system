@@ -1,0 +1,115 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+  	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!--external css-->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fake.css') }}">
+      
+      <!--Font Awesome-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+    <title>Fake Job Posting Detection</title>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Fake Job Detection</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-target="#navbarResponsive" 
+            aria-controls="navbarResponsive" aria-expanded="flase" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="/news_page">NEWS</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact_page">CONTACT</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<body>
+    
+    <div class="container m-5">
+      <div class="col-12 d-flex justify-content-center">
+        <div class="input-group mb-3" style="width: 50%;transform: scale(1.3); padding-top: 20px;">
+            <input type="text" class="form-control shadow" id="keyword" placeholder="What you looking for ?" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-secondary shadow" type="button" onclick="getnews()" id="button-addon2">Search</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border text-danger" id="load" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    <div class="posts"></div>
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  
+  <script>
+  getnews();
+  function getnews()
+  {
+    $(".posts").text("");
+    var keyword = $("#keyword").val();
+    if (keyword=='')
+    {
+      keyword="latest";
+    }
+    var url="https://newsapi.org/v2/top-headlines?q="+keyword+"&apiKey=da7d8026547342b48d341c0ecd7cb684";
+ 
+  $("#load").show();
+  $.get(url,(response)=>{
+  $("#load").hide();
+  console.log(response.articles[0]);
+  for(i=0;i<response.articles.length;i++)
+     {
+    var html = `<div class="card m-3 shadow">
+            <div class="row g-0">
+            <div class="col-md-4">
+              <img src="${response.articles[i].urlToImage}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">${response.articles[i].title}</h5>
+                <p class="card-text">${response.articles[i].content}</p>
+                <p class="card-text"><small class="text-muted">${response.articles[i].publishedAt} | ${response.articles[i].source.name} - ${response.articles[i].author}</small></p>
+            <a href="${response.articles[i].url}" target="_blank" class="btn btn-secondary">Read More</a>
+            <p></p>
+              </div>
+            </div>
+          </div>
+        </div>`;
+        $(".posts").append(html);
+    }
+});
+}
+</script>
+<!--Footer-->
+<footer class="py-5 bg-dark">
+  <div class="container">
+      <p class="text-center text-white">© Thane,Mumbai - All rights reserved</p>
+      <div class="credits text-center text-white">
+        Designed by <a href="#.">Anushka , Priya , Akshata</a>
+  </div>
+  <p class="text-center text-white"><a href="anushkadhonde@gmail.com">fakejobdetection@gmail.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
